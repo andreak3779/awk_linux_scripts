@@ -9,3 +9,4 @@ I wrote them to make it easier for me to update my linux (zorin OS) machine from
 4) move the extracted files into ~/scripts
 5) chmod og+x ~/scripts/*.sh
 6) echo 'export PATH=~/scripts:$PATH' >> ~/.bash_profile
+7) source ~/.bash_profile 
