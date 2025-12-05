@@ -9,6 +9,11 @@ I wrote them to make it easier for me to update my linux (zorin OS) machine from
   - BIOS and system enclosure information
   - CPU information
   - Memory usage
+- **checkforupdates.sh**: Updates the system by:
+  - Running `apt update` and `apt upgrade` to update and upgrade packages
+  - Cleaning up unused packages with `apt autoclean` and `apt autoremove`
+  - Refreshing Snap packages (if Snap is installed)
+  - Upgrading Flatpak packages (if Flatpak is installed)
 
 ### Setup:
 1) Extract files from the zip file.
