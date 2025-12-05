@@ -1,4 +1,20 @@
 #!/usr/bin/bash
-sudo uname -a
+
+echo "System Information:"
+uname -a
+echo
+
+echo "Hardware Details:"
 sudo lshw -businfo
-sudo dmidecode --type 0,13
+echo
+
+echo "BIOS and System Enclosure Information:"
+sudo dmidecode --type 0,1,3
+echo
+
+echo "CPU Information:"
+lscpu
+echo
+
+echo "Memory Information:"
+free -h
