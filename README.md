@@ -32,9 +32,9 @@ I wrote them to make it easier for me to update my linux (zorin OS) machine from
    ```
 6) Add the scripts directory to your PATH:
    ```bash
-   echo 'export PATH=~/scripts:$PATH' >> ~/.bash_profile
+   echo 'export PATH=~/scripts:$PATH' >> ~/.profile
    ```
 7) Reload your shell configuration:
    ```bash
-   source ~/.bash_profile
+   source ~/.profile
    ```
