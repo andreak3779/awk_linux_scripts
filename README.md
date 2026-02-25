@@ -157,13 +157,13 @@ sudo checkforupdates.sh
 - For system-wide installation, you need sudo
 
 **"sudo: command not found":**
-- Verify script is in a directory in your PATH: `which showhardware`
+- Verify script is in a directory in your PATH: `which showhardware.sh`
 - Add the directory to PATH (see Installation section)
 
 **`lshw` or `dmidecode` commands not found:**
 - Install required packages: `sudo apt install lshw dmidecode`
 
-**`checkforupdates` exits early:**
+**`checkforupdates.sh` exits early:**
 - The script uses error handling and stops on first error
 - Check the output for which command failed
 - Review system logs if needed: `journalctl -xe`
@@ -174,11 +174,6 @@ Remove installed scripts:
 
 ```bash
 rm ~/scripts/showhardware.sh ~/scripts/checkforupdates.sh
-```
-
-If symlinked to `/usr/local/bin/`:
-```bash
-sudo rm /usr/local/bin/showhardware /usr/local/bin/checkforupdates
 ```
 
 Remove from PATH (if using ~/.bashrc or ~/.bash_profile):
