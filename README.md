@@ -178,7 +178,7 @@ rm ~/scripts/showhardware.sh ~/scripts/checkforupdates.sh
 
 If symlinked to `/usr/local/bin/`:
 ```bash
-sudo rm /usr/local/bin/showhardware /usr/local/bin/checkforupdates
+sudo rm /usr/local/bin/showhardware.sh /usr/local/bin/checkforupdates.sh
 ```
 
 Remove from PATH (if using ~/.bashrc or ~/.bash_profile):
