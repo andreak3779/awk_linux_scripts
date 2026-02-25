@@ -115,10 +115,10 @@ sudo checkforupdates
    source ~/.bashrc
    ```
 
-   **Option B: Bash Profile (for ~/.bash_profile)**
+   **Option B: Profile (for ~/.profile - more compatible on many Linux distros)**
    ```bash
-   echo 'export PATH=~/scripts:$PATH' >> ~/.bash_profile
-   source ~/.bash_profile
+   echo 'export PATH=~/scripts:$PATH' >> ~/.profile
+   source ~/.profile
    ```
 
    **Option C: System-wide (requires sudo)**
