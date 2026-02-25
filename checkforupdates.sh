@@ -1,23 +1,38 @@
 #!/usr/bin/bash
-sudo apt update
-sudo apt upgrade --assume-yes
-sudo apt autoclean
-sudo apt autoremove
+set -e
+
+# Check if running with sudo privileges
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run with sudo privileges."
+   exit 1
+fi
+
+echo "=== System Update Started ==="
+
+echo "Updating package lists..."
+apt update 
+
+echo "Upgrading packages..."
+apt upgrade --assume-yes --allow-downgrades --allow-remove-essential --allow-change-held-packages
+
+echo "Cleaning apt cache..."
+apt autoclean --yes
+apt autoremove --yes
 
 # Check for Snap
 if command -v snap &> /dev/null; then
-    echo "Snap Refresh"
-    sudo snap refresh
+    echo "Refreshing Snap packages..."
+    snap refresh --stable 
 else
     echo "Snap is not installed."
 fi
 
 # Check for Flatpak
 if command -v flatpak &> /dev/null; then
-    echo "FlatPak Refresh"
-    sudo flatpak upgrade
+    echo "Refreshing Flatpak packages..."
+    flatpak upgrade --assumeyes
 else
     echo "Flatpak is not installed."
 fi
 
-exit
+echo "=== System Update Completed Successfully ==="
