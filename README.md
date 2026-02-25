@@ -130,7 +130,7 @@ sudo checkforupdates.sh
 
 4. Verify installation:
    ```bash
-   sudo showhardware
+   sudo showhardware.sh
    ```
 
 ## Usage
