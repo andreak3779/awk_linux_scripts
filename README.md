@@ -139,10 +139,10 @@ Run scripts from any terminal window:
 
 ```bash
 # Show hardware information (requires sudo)
-sudo showhardware
+sudo showhardware.sh
 
 # Update the system (requires sudo)
-sudo checkforupdates
+sudo checkforupdates.sh
 ```
 
 ## Troubleshooting
