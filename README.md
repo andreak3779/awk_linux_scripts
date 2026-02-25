@@ -115,10 +115,10 @@ sudo checkforupdates
    source ~/.bashrc
    ```
 
-   **Option B: Bash Profile (for ~/.bash_profile)**
+   **Option B: Profile (for ~/.profile - recommended for Linux/Zorin OS)**
    ```bash
-   echo 'export PATH=~/scripts:$PATH' >> ~/.bash_profile
-   source ~/.bash_profile
+   echo 'export PATH=~/scripts:$PATH' >> ~/.profile
+   source ~/.profile
    ```
 
    **Option C: System-wide (requires sudo)**
