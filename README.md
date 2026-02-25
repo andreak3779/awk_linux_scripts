@@ -123,7 +123,9 @@ sudo checkforupdates
 
    **Option C: System-wide (requires sudo)**
    ```bash
-   sudo ln -s ~/scripts/*.sh /usr/local/bin/
+   for f in "$HOME"/scripts/*.sh; do
+     sudo ln -s "$f" "/usr/local/bin/$(basename "$f" .sh)"
+   done
    ```
 
 4. Verify installation:
