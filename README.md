@@ -64,7 +64,7 @@ Displays comprehensive hardware and system information in one command.
 
 **Usage:**
 ```bash
-sudo showhardware
+sudo showhardware.sh
 ```
 
 > **Note:** The script must be run with `sudo` and will verify privileges before proceeding.
