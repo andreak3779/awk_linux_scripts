@@ -1,5 +1,4 @@
 #!/usr/bin/bash
-set -e
 
 # Check if running with sudo privileges
 if [[ $EUID -ne 0 ]]; then
@@ -22,7 +21,9 @@ apt autoremove --yes
 # Check for Snap
 if command -v snap &> /dev/null; then
     echo "Refreshing Snap packages..."
-    snap refresh --stable 
+    if ! snap refresh; then
+        echo "Warning: Snap refresh encountered errors, continuing..."
+    fi
 else
     echo "Snap is not installed."
 fi
@@ -30,7 +31,9 @@ fi
 # Check for Flatpak
 if command -v flatpak &> /dev/null; then
     echo "Refreshing Flatpak packages..."
-    flatpak upgrade --assumeyes
+    if ! flatpak upgrade --assumeyes; then
+        echo "Warning: Flatpak upgrade encountered errors, continuing..."
+    fi
 else
     echo "Flatpak is not installed."
 fi

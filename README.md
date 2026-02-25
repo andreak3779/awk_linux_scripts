@@ -81,7 +81,7 @@ Automated system update and maintenance script. Performs package updates, cleanu
 - Flatpak package upgrade (if installed)
 
 **Features:**
-- Error handling: stops on first error
+- Error handling: non-critical operations (Snap/Flatpak) continue on failure with a warning
 - Privilege verification: ensures it's run with sudo
 - Detailed status messages
 - Safe dependency removal with multiple safeguards
@@ -164,7 +164,7 @@ sudo checkforupdates
 - Install required packages: `sudo apt install lshw dmidecode`
 
 **`checkforupdates` exits early:**
-- The script uses error handling and stops on first error
+- Snap/Flatpak failures are non-fatal; check the warning output for details
 - Check the output for which command failed
 - Review system logs if needed: `journalctl -xe`
 
