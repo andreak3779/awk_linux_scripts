@@ -22,7 +22,7 @@ apt autoremove --yes
 # Check for Snap
 if command -v snap &> /dev/null; then
     echo "Refreshing Snap packages..."
-    snap refresh --stable 
+    snap refresh --stable
 else
     echo "Snap is not installed."
 fi
