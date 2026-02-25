@@ -22,7 +22,7 @@ apt autoremove --yes
 # Check for Snap
 if command -v snap &> /dev/null; then
     echo "Refreshing Snap packages..."
-    snap refresh --stable
+    snap refresh || true
 else
     echo "Snap is not installed."
 fi
@@ -30,7 +30,7 @@ fi
 # Check for Flatpak
 if command -v flatpak &> /dev/null; then
     echo "Refreshing Flatpak packages..."
-    flatpak upgrade --assumeyes
+    flatpak upgrade --assumeyes || true
 else
     echo "Flatpak is not installed."
 fi
