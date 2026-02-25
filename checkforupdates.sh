@@ -13,7 +13,7 @@ echo "Updating package lists..."
 apt update
 
 echo "Upgrading packages..."
-apt upgrade --assume-yes
+apt upgrade -y
 
 echo "Cleaning apt cache..."
 apt autoclean --yes
