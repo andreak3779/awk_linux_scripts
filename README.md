@@ -84,7 +84,7 @@ Automated system update and maintenance script. Performs package updates, cleanu
 - Error handling: stops on first error
 - Privilege verification: ensures it's run with sudo
 - Detailed status messages
-- Safe dependency removal with multiple safeguards
+- Automated dependency cleanup (may override some APT safety checks; review changes carefully before proceeding)
 
 **Usage:**
 ```bash
