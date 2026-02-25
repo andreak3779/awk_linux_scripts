@@ -10,7 +10,7 @@ fi
 echo "=== System Update Started ==="
 
 echo "Updating package lists..."
-apt update 
+apt update
 
 echo "Upgrading packages..."
 apt upgrade --assume-yes
