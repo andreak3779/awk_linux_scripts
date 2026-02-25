@@ -88,7 +88,7 @@ Automated system update and maintenance script. Performs package updates, cleanu
 
 **Usage:**
 ```bash
-sudo checkforupdates
+sudo checkforupdates.sh
 ```
 
 > **Note:** The script must be run with `sudo` and will verify privileges before proceeding.
