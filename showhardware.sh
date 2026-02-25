@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
-# Color codes for better readability
+# Section separators for better readability
 HEADER="\n===================="
 FOOTER="====================\n"
 
