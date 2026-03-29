@@ -9,18 +9,34 @@ Handy Linux maintenance scripts to make system administration easier from the te
 
 ## Table of Contents
 - [Overview](#overview)
+- [Common CLI Pattern](#common-cli-pattern)
 - [Prerequisites](#prerequisites)
 - [Scripts](#scripts)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Troubleshooting](#troubleshooting)
 - [Uninstallation](#uninstallation)
+- [Development & Planning](#development--planning)
 
 ## Overview
 
 This collection provides convenient terminal tools for:
 - Quick access to detailed hardware information
 - Automated system updates and cleanup
+- Google job search HTML capture for role-based queries
+
+## Common CLI Pattern
+
+All scripts in this repository support:
+- `-h` for short help
+- `--help` for long help
+
+Example:
+
+```bash
+checkforupdates.sh -h
+checkforupdates.sh --help
+```
 
 ## Compatibility
 
@@ -61,10 +77,13 @@ Displays comprehensive hardware and system information in one command.
 - Error handling: stops on first error
 - Privilege verification: ensures it's run with sudo
 - Clean formatted output with visual section separators
+- Built-in `-h` / `--help` usage output
 
 **Usage:**
 ```bash
 sudo showhardware.sh
+showhardware.sh -h
+showhardware.sh --help
 ```
 
 > **Note:** The script must be run with `sudo` and will verify privileges before proceeding.
@@ -85,13 +104,42 @@ Automated system update and maintenance script. Performs package updates, cleanu
 - Privilege verification: ensures it's run with sudo
 - Detailed status messages
 - Automated dependency cleanup (may override some APT safety checks; review changes carefully before proceeding)
+- Built-in `-h` / `--help` usage output
 
 **Usage:**
 ```bash
 sudo checkforupdates.sh
+checkforupdates.sh -h
+checkforupdates.sh --help
 ```
 
 > **Note:** The script must be run with `sudo` and will verify privileges before proceeding.
+
+### `jobsearch.sh`
+
+Generates Google `site:` search links for job postings and saves them in a timestamped HTML report.
+
+**Search targets:**
+- `site:boards.greenhouse.io "your role"`
+- `site:myworkdayjobs.com "your role"`
+
+**Features:**
+- Interactive role prompt
+- Optional CSV input with `-f` / `--file`
+- URL-encoded query building
+- One timestamped HTML output file
+- Built-in `-h` / `--help` usage output
+
+**Usage:**
+```bash
+./jobsearch.sh
+./jobsearch.sh -f roles.csv
+./jobsearch.sh -h
+./jobsearch.sh --help
+```
+
+When prompted, enter the role text (example: `site reliability engineer`).
+When using `-f` / `--file`, provide a CSV where the first column is the role.
 
 ## Installation
 
@@ -140,9 +188,18 @@ Run scripts from any terminal window:
 ```bash
 # Show hardware information (requires sudo)
 sudo showhardware
+showhardware -h
+showhardware --help
 
 # Update the system (requires sudo)
 sudo checkforupdates
+checkforupdates -h
+checkforupdates --help
+
+# Generate Google job search links HTML (no sudo required)
+./jobsearch.sh
+./jobsearch.sh -h
+./jobsearch.sh --help
 ```
 
 ## Troubleshooting
@@ -168,6 +225,13 @@ sudo checkforupdates
 - Check the output for which command failed
 - Review system logs if needed: `journalctl -xe`
 
+**`jobsearch` exits with CSV errors:**
+- Verify the file exists and is readable: `ls -l roles.csv`
+- Ensure the first CSV column contains role names
+
+**Need command usage details:**
+- Run any script with `-h` or `--help` to print usage and options
+
 ## Uninstallation
 
 Remove installed scripts:
@@ -178,7 +242,7 @@ rm ~/scripts/showhardware.sh ~/scripts/checkforupdates.sh
 
 If symlinked to `/usr/local/bin/`:
 ```bash
-sudo rm /usr/local/bin/showhardware /usr/local/bin/checkforupdates
+sudo rm /usr/local/bin/showhardware /usr/local/bin/checkforupdates /usr/local/bin/jobsearch
 ```
 
 Remove from PATH (if using ~/.bashrc or ~/.bash_profile):
@@ -187,6 +251,45 @@ Remove from PATH (if using ~/.bashrc or ~/.bash_profile):
 sudo vi ~/.bashrc
 # Find and delete: export PATH=~/scripts:$PATH
 ```
+
+## Development & Planning
+
+This repository includes planning resources and specification templates for developing and maintaining Bash scripts:
+
+### Planning Prompts
+
+Run these interactive prompts in GitHub Copilot Chat to plan and spec out Bash scripts:
+
+- **Bash Script Specification** (`.github/prompts/bash-specification.prompt.md`)  
+  Use when starting a new script or formalizing requirements. Generates CLI interface, I/O contract, runtime behavior, safety, and testing plan.
+
+- **Checkforupdates Plan** (`.github/prompts/plan-checkforupdates.prompt.md`)  
+  Maintenance and enhancement strategy for the system update script, including verification steps and tech decisions.
+
+- **Showhardware Plan** (`.github/prompts/plan-showhardware.prompt.md`)  
+  Maintenance and enhancement strategy for the hardware inventory script, with verification checklist and future extensibility notes.
+
+- **Google Job Search Plan** (`.github/prompts/plan-googleJobSearch.prompt.md`)  
+  Implementation and feature plan for the job search link generator, including phase breakdown and regression testing.
+
+### How to Use
+
+1. Open GitHub Copilot Chat (`Ctrl+Shift+Alt+I` or `Cmd+Shift+Alt+I` on macOS)
+2. Type `/` to see available prompts
+3. Select the desired prompt and provide task-specific details
+
+Example:
+
+```
+/bash-specification "create a log rotation script that archives files older than 30 days"
+```
+
+### Contributing
+
+When adding new scripts or features, consider:
+- Running the Bash Script Specification prompt to document expected behavior
+- Following the Common CLI Pattern (see [above](#common-cli-pattern)) for consistency
+- Adding a plan prompt (`.github/prompts/plan-<scriptname>.prompt.md`) for future maintainers
 
 ## Credits
 
