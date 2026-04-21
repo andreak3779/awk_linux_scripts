@@ -88,7 +88,7 @@ Automated system update and maintenance script. Performs package updates, cleanu
 
 **Usage:**
 ```bash
-sudo checkforupdates
+sudo checkforupdates.sh
 ```
 
 > **Note:** The script must be run with `sudo` and will verify privileges before proceeding.
@@ -178,12 +178,12 @@ rm ~/scripts/showhardware.sh ~/scripts/checkforupdates.sh
 
 If symlinked to `/usr/local/bin/`:
 ```bash
-sudo rm /usr/local/bin/showhardware.sh /usr/local/bin/checkforupdates.sh
+sudo rm /usr/local/bin/showhardware /usr/local/bin/checkforupdates
 ```
 
-Remove from PATH (if using ~/.bashrc or ~/.bash_profile):
+Remove from PATH (if using ~/.bashrc or ~/.profile):
 ```bash
-# Edit ~/.bashrc or ~/.bash_profile and remove the PATH line
+# Edit ~/.bashrc or ~/.profile and remove the PATH line
 sudo vi ~/.bashrc
 # Find and delete: export PATH=~/scripts:$PATH
 ```
