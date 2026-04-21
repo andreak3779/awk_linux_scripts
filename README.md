@@ -115,10 +115,10 @@ sudo checkforupdates.sh
    source ~/.bashrc
    ```
 
-   **Option B: Bash Profile (for ~/.bash_profile)**
+   **Option B: Profile (for ~/.profile)**
    ```bash
-   echo 'export PATH=~/scripts:$PATH' >> ~/.bash_profile
-   source ~/.bash_profile
+   echo 'export PATH=~/scripts:$PATH' >> ~/.profile
+   source ~/.profile
    ```
 
    **Option C: System-wide (requires sudo)**
@@ -181,9 +181,9 @@ If symlinked to `/usr/local/bin/`:
 sudo rm /usr/local/bin/showhardware /usr/local/bin/checkforupdates
 ```
 
-Remove from PATH (if using ~/.bashrc or ~/.bash_profile):
+Remove from PATH (if using ~/.bashrc or ~/.profile):
 ```bash
-# Edit ~/.bashrc or ~/.bash_profile and remove the PATH line
+# Edit ~/.bashrc or ~/.profile and remove the PATH line
 sudo vi ~/.bashrc
 # Find and delete: export PATH=~/scripts:$PATH
 ```

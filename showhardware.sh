@@ -11,23 +11,23 @@ fi
 HEADER="\n===================="
 FOOTER="====================\n"
 
-printf "$HEADER System Information $FOOTER"
+printf "%b" "$HEADER System Information $FOOTER"
 uname -a
 
-printf "$HEADER Hardware Details $FOOTER"
+printf "%b" "$HEADER Hardware Details $FOOTER"
 lshw -businfo
 
-printf "$HEADER BIOS and System Enclosure Information $FOOTER"
+printf "%b" "$HEADER BIOS and System Enclosure Information $FOOTER"
 dmidecode --type 0,1,3
 
-printf "$HEADER CPU Information $FOOTER"
+printf "%b" "$HEADER CPU Information $FOOTER"
 lscpu
 
-printf "$HEADER Memory Information $FOOTER"
+printf "%b" "$HEADER Memory Information $FOOTER"
 free -h
 
-printf "$HEADER Disk Usage $FOOTER"
+printf "%b" "$HEADER Disk Usage $FOOTER"
 df -h /
 
-printf "$HEADER Network Interfaces $FOOTER"
+printf "%b" "$HEADER Network Interfaces $FOOTER"
 ip -br addr
