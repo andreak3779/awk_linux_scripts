@@ -1,12 +1,4 @@
 #!/usr/bin/bash
-set -e
-
-# Check if running with sudo privileges
-if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run with sudo privileges."
-   exit 1
-fi
-
 echo "=== System Update Started ==="
 
 echo "Updating package lists..."
