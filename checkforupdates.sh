@@ -1,20 +1,21 @@
 #!/usr/bin/bash
+
 echo "=== System Update Started ==="
 
 echo "Updating package lists..."
-apt update
+sudo apt update
 
 echo "Upgrading packages..."
-apt upgrade -y
+sudo apt upgrade -y
 
 echo "Cleaning apt cache..."
-apt autoclean --yes
-apt autoremove --yes
+sudo apt autoclean --yes
+sudo apt autoremove --yes
 
 # Check for Snap
 if command -v snap &> /dev/null; then
     echo "Refreshing Snap packages..."
-    snap refresh --stable
+    sudo snap refresh 
 else
     echo "Snap is not installed."
 fi
@@ -22,7 +23,7 @@ fi
 # Check for Flatpak
 if command -v flatpak &> /dev/null; then
     echo "Refreshing Flatpak packages..."
-    flatpak upgrade --assumeyes
+    sudo flatpak upgrade --assumeyes
 else
     echo "Flatpak is not installed."
 fi
