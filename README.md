@@ -185,4 +185,4 @@ sudo vi ~/.bashrc
 
 ## Credits
 
-These scripts were enhanced with assistance from [GitHub Copilot](https://github.com/features/copilot), an AI-powered code assistant. Improvements include error handling, security checks, better formatting, and additional functionality.
+These scripts were enhanced with assistance from [GitHub Copilot](https://github.com/features/copilot) (GPT-4) in VS Code, an AI-powered code assistant. Improvements include error handling, security checks, better formatting, and additional functionality.
